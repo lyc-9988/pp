@@ -1,0 +1,104 @@
+# forms:
+#   - study_form
+
+intents:
+  - greet
+  - study_attempt
+  - not_study_attempt
+  - inform
+  - goodbye
+  - ask_identity
+  - affirm
+  - deny
+  - bot_challenge
+  - ask_stop
+
+entities:
+  - subject
+  - duration
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_affirmbot
+  - utter_go_study_once
+  - utter_go_study_twice
+  - action_check_past
+  - utter_slots_values
+  - utter_ask_stop
+  - action_record_study
+
+slots:
+  # lucky_number:
+  #   type: categorical
+  #   values: 
+  #   - 0
+  #   - 1
+  yesterday_study_hour:
+    type: float
+    min_value: 0.0
+    max_value: 10.0
+  subject:
+    type: text
+    # auto_fill: false
+  duration:
+    type: float
+    min_value: 0.0
+    max_value: 10.0
+
+responses:
+  utter_greet:
+    - text: "Hello, nice seeing you. "
+
+  utter_goodbye:
+    - text: "Thank you for using me. Goodbye."
+
+  utter_iamabot:
+    - text: "I am studybot. My goal is to help people have problems with their study plans
+      by recording their study plan. "
+
+  utter_affirmbot:
+    - text: "I am a bot and your assistant."
+
+  utter_go_study_once:
+   - text: "What a nice day for studying. Don't you think so, human?"
+
+  utter_go_study_twice:
+    - text: "Study is neccesary for your kind to better understand and control your world, so I think  
+    you shouldn't stop studying. "
+
+
+  utter_slots_values:
+    - text: "Your study time for {subject} today will be {duration}h. Try your best!"
+  
+  utter_ask_stop:
+    - text: "Do you really don't want to study today?"
+
+  # use in form, don't need to include in actions
+  utter_submit:
+    - text: "Plan recorded."
+
+  utter_ask_subject:
+    - text: "What (subject) do you want to study today?"
+
+  utter_ask_duration:
+    - text: "How long do you want to study today?"
+
+  utter_neg_hour:
+    - text: "You cannot steal time from the past. Please enter a non-negative number."
+
+  utter_study_too_much:
+    - text: "Your health is more important than everything else. Please study no more than 10 hours
+              per day. Please enter a number smaller than 10. "
+
+  utter_invalid_hour:
+    - text: "Please enter a number between 0 and 10 (inclusive)."
+
+  utter_default:
+    - text: "Please try not to mess up with me, I am trying to help you :("
+  
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
