@@ -64,9 +64,9 @@ class CheckYesterday(Action):
                         return float(row['duration'])
 
     def run(self, dispatcher, tracker, domain):
-        # type: (CollectingDispatcher, Tracker, Dict[Text, Any]) 
+        # type: (CollectingDispatcher, Tracker, Dict[Text, Any])
         # -> List[Dict[Text, Any]]
-    
+
         yesterday = str(datetime.date(datetime.now() - timedelta(1)))
 
         study_hour=self.find_plan(yesterday)
@@ -118,16 +118,16 @@ class RecordStudy(Action):
                 attributes = ['date', 'duration']
                 writer = csv.DictWriter(f, fieldnames=attributes)
                 curr_date = str(datetime.date(datetime.now()))
-            
-                if not check_plan(curr_date):
+
+                if not RecordStudy.check_plan(curr_date):
                     writer.writerow({'date' : curr_date, 'duration' : str(duration)})
                     return 1
                 else:
                     # repeated date
                     return -1
 
-    def run(self, dispatcher, tracker, domain): 
-        # type: (CollectingDispatcher, Tracker, Dict[Text, Any]) 
+    def run(self, dispatcher, tracker, domain):
+        # type: (CollectingDispatcher, Tracker, Dict[Text, Any])
         # -> List[Dict[Text, Any]]
 
         duration = tracker.get_slot('duration')
@@ -140,26 +140,26 @@ class RecordStudy(Action):
 class StudyForm(Action):
     def name(self):
         return "study_form"
-    
+
     @staticmethod
     def required_slots(tracker):
         return ["subject", "duration"]
 
     def submit(self, dispatcher, tracker, domain):
-        #type: (CollcetingDispatcher, Tracker, Dict[Text, Any]) 
+        #type: (CollcetingDispatcher, Tracker, Dict[Text, Any])
         # -> List[Dict]
 
         #TODO save info
         dispatcher.utter_message(response='utter_submit')
-    
+
     def slot_mapping(self):
         # type: () -> Dict[Text: Union[Dict, List[Dict]]]
 
-        return {"subject" : self.from_entity(entity="subject", 
-                                            intent=["inform", 
+        return {"subject" : self.from_entity(entity="subject",
+                                            intent=["inform",
                                                     "study_attempt"]),
-                "duration" : self.from_entity(entity="subject", 
-                                            intent=["inform", 
+                "duration" : self.from_entity(entity="subject",
+                                            intent=["inform",
                                                     "study_attempt"])}
 
     @staticmethod
@@ -172,7 +172,7 @@ class StudyForm(Action):
             return False
 
     def validate_duration(self, value, dispatcher, tracker, domain):
-        #type: (Text, CollectingDispatcher, Tracker, Dict[Text, Any]) 
+        #type: (Text, CollectingDispatcher, Tracker, Dict[Text, Any])
         # -> Dict[Text, Any]
 
         if self.is_float(value):
