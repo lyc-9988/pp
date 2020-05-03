@@ -45,12 +45,12 @@
 - [Computer Science](subject)
 - [Math](subject)
 - [Literature](subject)
-- I want to study[Physics](subject)
+- I want to study [Physics](subject)
 - I am going to work on [Physiology](subject)
 - [2](duration) hours
-- [3.5](duration)h
+- [35](duration)h
 - about [1]h(duration)
-- I plan to study [1.5](duration)h
+- I plan to study [15](duration)h
 - I want to study for [5](duration) hours
 - study for [2](duration) hours
 - [2](duration) hours
