@@ -1,0 +1,13 @@
+math
+chemistry
+biology
+physics
+psychology
+physiology
+computer science
+literature
+english
+french
+japanese
+english
+spanish
