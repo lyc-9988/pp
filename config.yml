@@ -12,6 +12,7 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: "DIETClassifier"
+    epochs: 100
     hidden_layers_sizes:
       text: [256, 128]
     number_of_transformer_layers: 0
