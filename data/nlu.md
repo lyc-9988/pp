@@ -19,12 +19,12 @@
 - Let's study
 - can't wait to study
 - gonna study today
-- hey I need to study for my [Japanese](subject) final tomorrow
-- um I have an exam on [Chemistry](subject) coming up
+- hey I need to study for my [japanese](subject) final tomorrow
+- um I have an exam on [chemistry](subject) coming up
 - yah I have to study [math](subject) today
 - I want to study for [1](duration) hour today
-- I'd like to study [Physics](subject) for [2](duration) hours today
-- gotta study [Math](subject) for [1] hour
+- I'd like to study [physics](subject) for [2](duration) hours today
+- gotta study [math](subject) for [1] hour
 
 ## intent:not_study_attempt
 - i don't want to study
@@ -40,17 +40,14 @@
 - I want to give up
 
 ## intent:inform
-- [English](subject)
-- [French](subject)
-- [Computer Science](subject)
-- [Math](subject)
-- [Literature](subject)
-- I want to study [Physics](subject)
-- I am going to work on [Physiology](subject)
+- [english](subject)
+- [computer science](subject)
+- I want to study [physics](subject)
+- I am going to work on [physiology](subject)
 - [2](duration) hours
-- [35](duration)h
-- about [1]h(duration)
-- I plan to study [15](duration)h
+- [3](duration)
+- about [1](duration)
+- I plan to study [10](duration)
 - I want to study for [5](duration) hours
 - study for [2](duration) hours
 - [2](duration) hours
@@ -98,9 +95,13 @@
 - not really
 - nah
 - maybe not
+- no that's enough
 
 ## intent:bot_challenge
 - are you a bot?
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+
+## lookup:subjects
+data/lookup_tables/subjects.txt
