@@ -1,5 +1,5 @@
-# forms:
-#   - study_form
+forms:
+  - study_form
 
 intents:
   - greet
@@ -27,12 +27,12 @@ actions:
   - action_check_past
   - utter_slots_values
   - utter_ask_stop
-  - action_record_study
+  # - action_record_study
 
 slots:
   # lucky_number:
   #   type: categorical
-  #   values: 
+  #   values:
   #   - 0
   #   - 1
   yesterday_study_hour:
@@ -40,12 +40,13 @@ slots:
     min_value: 0.0
     max_value: 10.0
   subject:
-    type: text
-    # auto_fill: false
+    type: unfeaturized
+    auto_fill: false
   duration:
-    type: float
-    min_value: 0.0
-    max_value: 10.0
+    type: unfeaturized
+    auto_fill: false
+  requested_slot:
+    type: unfeaturized
 
 responses:
   utter_greet:
@@ -65,13 +66,13 @@ responses:
    - text: "What a nice day for studying. Don't you think so, human?"
 
   utter_go_study_twice:
-    - text: "Study is neccesary for your kind to better understand and control your world, so I think  
+    - text: "Study is neccesary for your kind to better understand and control your world, so I think
     you shouldn't stop studying. "
 
 
   utter_slots_values:
     - text: "Your study time for {subject} today will be {duration}h. Try your best!"
-  
+
   utter_ask_stop:
     - text: "Do you really don't want to study today?"
 
@@ -80,10 +81,10 @@ responses:
     - text: "Plan recorded."
 
   utter_ask_subject:
-    - text: "What (subject) do you want to study today?"
+    - text: "What subject do you want to study today?"
 
   utter_ask_duration:
-    - text: "How long do you want to study today?"
+    - text: "How many hour(s) do you want to study today?"
 
   utter_neg_hour:
     - text: "You cannot steal time from the past. Please enter a non-negative number."
@@ -97,8 +98,8 @@ responses:
 
   utter_default:
     - text: "Please try not to mess up with me, I am trying to help you :("
-  
-  
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
